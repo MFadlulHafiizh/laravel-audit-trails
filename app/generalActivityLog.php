@@ -23,7 +23,7 @@ if (! function_exists('setActivityLog')) {
         $authenticationLog->batch = $batch;
         $authenticationLog->model_path = $modelPath;
         $authenticationLog->keterangan = $description;
-        $authenticationLog->user_agent = $_SERVER['HTTP_USER_AGENT'];
+        $authenticationLog->user_agent = @$_SERVER['HTTP_USER_AGENT'];
         $authenticationLog->old_values = !empty($customOldValues) ? json_encode($customOldValues) : null;
         $authenticationLog->new_values = !empty($customNewValues) ? json_encode($customNewValues) : null;
         $authenticationLog->save();
